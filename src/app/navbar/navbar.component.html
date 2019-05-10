@@ -8,21 +8,21 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item ">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      <li class="nav-item" [ngClass]="{'active': homeTab}">
+        <a class="nav-link" (click)="onSelect('home')" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/blog">Blog</a>
+      <li class="nav-item" [ngClass]="{'active': blogTab}">
+        <a class="nav-link" (click)="onSelect('blog')" routerLink="/blog">Blog</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/intranet">Intranet</a>
+      <li class="nav-item" [ngClass]="{'active': intranetTab}">
+        <a class="nav-link" (click)="onSelect('intranet')" routerLink="/intranet">Intranet</a>
       </li>
       <!projects-->
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <li class="nav-item dropdown" [ngClass]="{'active': projectsTab}">
+        <a (click)="onSelect('projects')" class="nav-link dropdown-toggle" href="#" id="projetsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Projects
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <div class="dropdown-menu" aria-labelledby="projetsDropdown">
           <a class="dropdown-item" href="#">Action</a>
           <a class="dropdown-item" href="#">Another action</a>
           <div class="dropdown-divider"></div>
@@ -30,11 +30,11 @@
         </div>
       </li>
       <!apps-->
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <li class="nav-item dropdown" [ngClass]="{'active': appsTab}">
+        <a (click)="onSelect('apps')" class="nav-link dropdown-toggle" href="#" id="appsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Apps
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+        <div class="dropdown-menu" aria-labelledby="appsDropdown">
           <a class="dropdown-item" href="#">Action</a>
           <a class="dropdown-item" href="#">Another action</a>
           <div class="dropdown-divider"></div>
@@ -45,6 +45,7 @@
         <a class="nav-link disabled" href="#">Disabled</a>
       </li>
     </ul>
+    <!version-block-->
     <div>
       <ul class="navbar-nav mr-auto my-2 ">
         <li class="nav-item dropdown mr-sm-2">

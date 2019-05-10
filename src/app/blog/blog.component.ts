@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MessageService} from '../message.service';
 
 @Component({
   selector: 'app-blog',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogComponent implements OnInit {
 
-  constructor() { }
+  constructor(public messageService: MessageService) { }
 
   ngOnInit() {
+    this.messageService.add('Welcome HOME Site in Maintenance');
   }
 
 }
