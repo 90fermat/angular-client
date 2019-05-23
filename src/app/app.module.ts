@@ -10,6 +10,8 @@ import { ProjectsComponent } from './projects/projects.component';
 import { IntranetComponent } from './intranet/intranet.component';
 import { AppsComponent } from './apps/apps.component';
 import { MessagesComponent } from './messages/messages.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { MessagesComponent } from './messages/messages.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
