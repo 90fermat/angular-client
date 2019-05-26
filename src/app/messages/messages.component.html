@@ -1,7 +1,7 @@
 <mat-toolbar *ngIf="messageService.messages.length">
 
-  <div *ngFor='let message of messageService.messages'> {{message}} </div>
-  <button class="clear"
+  <div *ngFor='let message of messageService.messages'  class="mr-lg-auto"> {{message}} </div>
+  <button class="clear  ml-auto"
           (click)="messageService.clear()">clear</button>
 
 

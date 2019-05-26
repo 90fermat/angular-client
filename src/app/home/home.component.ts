@@ -16,9 +16,13 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
 
-    if(this.loginService.isLogged) { this.loginService.initHome(); }
+    if(this.loginService.isLogged) {
+      this.loginService.initHome();
+      this.messageService.add('Welcome' + this.loginService.userName +' Site in Maintenance');
+    } else {
+        this.messageService.add('Welcome HOME Site in Maintenance');
+    }
 
-    this.messageService.add('Welcome' + 'HOME Site in Maintenance');
   }
 
 }
