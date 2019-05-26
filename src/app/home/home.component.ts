@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MessageService} from '../message.service';
+import {LoginService} from "../login.service";
 
 @Component({
   selector: 'app-home',
@@ -8,9 +9,16 @@ import {MessageService} from '../message.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public messageService: MessageService) { }
+  constructor(
+    public messageService: MessageService,
+    public  loginService: LoginService
+  ) { }
 
   ngOnInit() {
-    this.messageService.add('Welcome HOME Site in Maintenance');
+
+    if(this.loginService.isLogged) { this.loginService.initHome(); }
+
+    this.messageService.add('Welcome' + 'HOME Site in Maintenance');
   }
+
 }

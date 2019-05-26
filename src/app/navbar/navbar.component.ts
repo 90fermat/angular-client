@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {LoginService} from "../login.service";
 
 @Component({
   selector: 'app-navbar',
@@ -15,9 +16,12 @@ export class NavbarComponent implements OnInit {
   homeTab = true;
   beforeTab = true;
 
-  constructor() { }
+  userName:string;
+
+  constructor(public loginService: LoginService) { }
 
   ngOnInit() {
+    this.userName = this.loginService.userName;
   }
   onSelect(tab: string) {
     switch (tab) {

@@ -9,7 +9,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item" [ngClass]="{'active': homeTab}">
-        <a class="nav-link" (click)="onSelect('home')" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" (click)="onSelect('home')" routerLink="">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item" [ngClass]="{'active': blogTab}">
         <a class="nav-link" (click)="onSelect('blog')" routerLink="/blog">Blog</a>
@@ -65,5 +65,9 @@
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
     </form>
+    <div class="my-2 my-lg-0">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="button" routerLink="/login">Login</button>
+      <label></label>
+    </div>
   </div>
 </nav>
