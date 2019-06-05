@@ -1,0 +1,15 @@
+.center {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+}
+.input {
+
+  /* the width of the input border */
+  padding: 10px;
+
+  /* we want rounded corners no matter the size of the field */
+  border-radius: 5em;
+
+}

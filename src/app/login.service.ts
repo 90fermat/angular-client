@@ -11,12 +11,24 @@ export class LoginService {
   userName: string;
   isLogged = false;
 
+
   constructor(
     private http: HttpClient
   ) { }
 
+
+
+  //  options = {
+  //   "crowd": {
+  //     "base": "http://localhost:8059/crowd/"
+  //   },
+  //   "application": {
+  //     "name": "my application",
+  //     "password": "pass123"
+  //   }
+  // }
   initHome() {
-    let url = environment.url + '/user';
+    /*let url = environment.url + '/user';
 
     let headers: HttpHeaders = new HttpHeaders({
       'Authorization': 'Basic ' + sessionStorage.getItem('token'),
@@ -32,7 +44,7 @@ export class LoginService {
         if(error.status == 401)
           alert('Unauthorized');
       }
-    );
+    );*/
   }
 
   logout() {
