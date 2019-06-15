@@ -33,9 +33,9 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    let url = environment.url +'/login';
+    let url = environment.url +'/login-perform';
     this.http.post<Observable<boolean>>(url, {
-      userName: this.model.username,
+      username: this.model.username,
       password: this.model.password
     }, this.httpOptions).subscribe(isValid => {
       if (isValid) {
