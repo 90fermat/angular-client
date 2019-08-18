@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpErrorResponse, HttpHeaders, HttpParams} from "@angular/common/http";
 import {environment} from "../environments/environment";
 import {Observable, throwError} from "rxjs";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,10 @@ export class LoginService {
   isLogged = false;
 
 
+
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router
   ) { }
 
 
@@ -45,6 +48,33 @@ export class LoginService {
           alert('Unauthorized');
       }
     );*/
+  }
+
+  login(model: any) {
+    let url = environment.url +'/login';
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': 'http://localhost:4200'
+      }),
+      params: new HttpParams().append('username', model.username)
+        .append('password', model.password),
+
+      withCredentials: true
+    };
+    this.http.post<Observable<boolean>>(url, {
+      username: model.username,
+      password: model.password
+    }, httpOptions).subscribe(isValid => {
+      if (isValid) {
+        sessionStorage.setItem('token', btoa(model.username + ':' + model.password));
+        this.isLogged = true;
+        this.userName = model.username;
+        this.router.navigate(['']);
+      } else {
+        alert("Authentication failed.")
+      }
+    });
   }
 
   logout() {

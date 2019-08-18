@@ -14,16 +14,10 @@ export class LoginComponent implements OnInit {
 
   model: any ={};
 
-   httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': 'http://localhost:4200'
-    })
-  };
+
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
     private http: HttpClient,
     private  loginService: LoginService
   ) { }
@@ -33,20 +27,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    let url = environment.url +'/login-perform';
-    this.http.post<Observable<boolean>>(url, {
-      username: this.model.username,
-      password: this.model.password
-    }, this.httpOptions).subscribe(isValid => {
-      if (isValid) {
-        sessionStorage.setItem('token', btoa(this.model.username + ':' + this.model.password));
-        this.loginService.isLogged = true;
-        this.loginService.userName = this.model.username;
-        this.router.navigate(['']);
-      } else {
-        alert("Authentication failed.")
-      }
-    });
+    this.loginService.login(this.model)
   }
 
 }

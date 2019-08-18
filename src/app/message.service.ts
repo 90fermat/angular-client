@@ -8,7 +8,12 @@ export class MessageService {
   constructor() { }
 
   add(message: string) {
-    this.messages.push(message);
+    if (this.messages.length >= 1) {
+      this.clear();
+      this.messages.push(message);
+    } else {
+      this.messages.push(message);
+    }
   }
 
   clear() {

@@ -4,9 +4,7 @@
 
 export const environment = {
   production: false,
-  url:'http://localhost:8090',
-  crowd_app_name: 'foyang-tech-main-angular-client',
-  crowd_app_pwd: 'hX5W4jgFxRBWMgf'
+  url:'http://localhost:8090'
 };
 
 /*
